@@ -1,0 +1,12 @@
+
+/* Class = "UITextView"; text = "Atenção: esse aplicativo é um simulador, não temos compromisso com a vida real."; ObjectID = "AiW-6J-FFE"; */
+"AiW-6J-FFE.text" = "Atenção: esse aplicativo é um simulador, não temos compromisso com a vida real.";
+
+/* Class = "UINavigationItem"; title = "Saldo Atual"; ObjectID = "Tfi-me-LP3"; */
+"Tfi-me-LP3.title" = "Saldo Atual";
+
+/* Class = "UIButton"; normalTitle = "Prática"; ObjectID = "Yuz-Y3-9An"; */
+"Yuz-Y3-9An.normalTitle" = "Prática";
+
+/* Class = "UIButton"; normalTitle = "Teoria"; ObjectID = "wkb-wL-3yO"; */
+"wkb-wL-3yO.normalTitle" = "Teoria";
