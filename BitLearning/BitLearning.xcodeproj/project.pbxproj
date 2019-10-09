@@ -13,6 +13,8 @@
 		55C33C51234B733600354397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C33C4F234B733600354397 /* Main.storyboard */; };
 		55C33C53234B733800354397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C33C52234B733800354397 /* Assets.xcassets */; };
 		55C33C56234B733800354397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C33C54234B733800354397 /* LaunchScreen.storyboard */; };
+		55C33C62234CB98100354397 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C61234CB98100354397 /* GraphView.swift */; };
+		55C33C64234CBA4400354397 /* CoinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C63234CBA4400354397 /* CoinController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		55C33C52234B733800354397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55C33C55234B733800354397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55C33C57234B733800354397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C33C61234CB98100354397 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		55C33C63234CBA4400354397 /* CoinController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +64,10 @@
 			children = (
 				55C33C49234B733600354397 /* AppDelegate.swift */,
 				55C33C4B234B733600354397 /* SceneDelegate.swift */,
+				55C33C61234CB98100354397 /* GraphView.swift */,
 				55C33C4D234B733600354397 /* ViewController.swift */,
 				55C33C4F234B733600354397 /* Main.storyboard */,
+				55C33C63234CBA4400354397 /* CoinController.swift */,
 				55C33C52234B733800354397 /* Assets.xcassets */,
 				55C33C54234B733800354397 /* LaunchScreen.storyboard */,
 				55C33C57234B733800354397 /* Info.plist */,
@@ -109,7 +115,9 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 55C33C3D234B733600354397;
 			productRefGroup = 55C33C47234B733600354397 /* Products */;
@@ -140,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55C33C4E234B733600354397 /* ViewController.swift in Sources */,
+				55C33C64234CBA4400354397 /* CoinController.swift in Sources */,
 				55C33C4A234B733600354397 /* AppDelegate.swift in Sources */,
 				55C33C4C234B733600354397 /* SceneDelegate.swift in Sources */,
+				55C33C62234CB98100354397 /* GraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
