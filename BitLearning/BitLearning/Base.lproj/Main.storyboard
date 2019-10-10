@@ -365,14 +365,143 @@
                     <view key="view" contentMode="scaleToFill" id="RlI-OJ-jIN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xK-bY-BgV">
+                                <rect key="frame" x="0.0" y="88" width="414" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-NA-rgN">
+                                        <rect key="frame" x="0.0" y="75" width="33" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pontuação: 999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-Dm-o5j">
+                                        <rect key="frame" x="232" y="31" width="174" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XX/25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3W-qy-tJU">
+                                        <rect key="frame" x="8" y="31" width="71" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82685596446700504" green="0.65281195923823176" blue="0.45659446588516972" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0HX-vl-ONI">
+                                <rect key="frame" x="0.0" y="452" width="414" height="410"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ow-j6-0c9" userLabel="QuestionView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="410"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GBW-Gb-Opw">
+                                                <rect key="frame" x="15" y="5" width="384" height="387.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-5J-WgT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="384" height="91"/>
+                                                        <color key="backgroundColor" red="0.82685596449999998" green="0.65281195920000001" blue="0.45659446590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="A. Resposta 1">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="kMf-gg-41T" eventType="touchUpInside" id="NH2-9G-g49"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43p-9W-gZw">
+                                                        <rect key="frame" x="0.0" y="99" width="384" height="91"/>
+                                                        <color key="backgroundColor" red="0.82685596449999998" green="0.65281195920000001" blue="0.45659446590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="B. Resposta 2">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="kMf-gg-41T" eventType="touchUpInside" id="3Oj-ih-lPx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYh-ft-wuF">
+                                                        <rect key="frame" x="0.0" y="198" width="384" height="90.5"/>
+                                                        <color key="backgroundColor" red="0.82685596449999998" green="0.65281195920000001" blue="0.45659446590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="C. Resposta 3">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="kMf-gg-41T" eventType="touchUpInside" id="hdC-xW-Pig"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edb-my-ZOQ">
+                                                        <rect key="frame" x="0.0" y="296.5" width="384" height="91"/>
+                                                        <color key="backgroundColor" red="0.82685596449999998" green="0.65281195920000001" blue="0.45659446590000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <state key="normal" title="D. Resposta 4">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="kMf-gg-41T" eventType="touchUpInside" id="9Zs-J0-R1m"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GBW-Gb-Opw" firstAttribute="centerX" secondItem="2Ow-j6-0c9" secondAttribute="centerX" id="1Xk-BL-gmy"/>
+                                            <constraint firstAttribute="trailing" secondItem="GBW-Gb-Opw" secondAttribute="trailing" constant="15" id="8oZ-r8-nJ4"/>
+                                            <constraint firstItem="GBW-Gb-Opw" firstAttribute="leading" secondItem="2Ow-j6-0c9" secondAttribute="leading" constant="15" id="NRw-vA-7sm"/>
+                                            <constraint firstAttribute="bottom" secondItem="GBW-Gb-Opw" secondAttribute="bottom" constant="15" id="Oe5-OD-ya1"/>
+                                            <constraint firstItem="GBW-Gb-Opw" firstAttribute="top" secondItem="2Ow-j6-0c9" secondAttribute="top" constant="7.5" id="ekP-C3-A1A"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rUu-CW-PG0" userLabel="QuestionView">
+                                <rect key="frame" x="0.0" y="180" width="414" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="De acordo com a definição, o que são criptomoedas?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyo-k1-tIl">
+                                        <rect key="frame" x="1" y="148" width="414" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coins" translatesAutoresizingMaskIntoConstraints="NO" id="Ibz-iH-XUE">
+                                        <rect key="frame" x="88" y="22" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80086056472081224" green="0.80086056472081224" blue="0.80086056472081224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.99902611970901489" green="0.96985000371932983" blue="0.89802831411361694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="0HX-vl-ONI" firstAttribute="leading" secondItem="SO3-fC-ckk" secondAttribute="leading" id="5h0-O6-UUL"/>
+                            <constraint firstItem="SO3-fC-ckk" firstAttribute="trailing" secondItem="0HX-vl-ONI" secondAttribute="trailing" id="YCy-fx-m2L"/>
+                            <constraint firstItem="SO3-fC-ckk" firstAttribute="bottom" secondItem="0HX-vl-ONI" secondAttribute="bottom" id="xid-CT-sv9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SO3-fC-ckk"/>
                     </view>
                     <navigationItem key="navigationItem" id="d1u-QC-qRA"/>
+                    <connections>
+                        <outlet property="flagView" destination="Ibz-iH-XUE" id="luw-Y3-eTh"/>
+                        <outlet property="optionA" destination="iAH-5J-WgT" id="MeO-py-Hk1"/>
+                        <outlet property="optionB" destination="43p-9W-gZw" id="tmD-jg-hwq"/>
+                        <outlet property="optionC" destination="AYh-ft-wuF" id="WgL-bH-g8E"/>
+                        <outlet property="optionD" destination="edb-my-ZOQ" id="1Uf-ev-vIe"/>
+                        <outlet property="progressView" destination="pKW-NA-rgN" id="ne3-cG-Dnc"/>
+                        <outlet property="questionCounter" destination="P3W-qy-tJU" id="IY5-zs-6wl"/>
+                        <outlet property="questionLabel" destination="Jyo-k1-tIl" id="e9n-SX-GSD"/>
+                        <outlet property="scoreLabel" destination="NGd-Dm-o5j" id="gSl-1F-Bez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCs-QD-Hja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2941" y="-1303"/>
+            <point key="canvasLocation" x="2940.579710144928" y="-1303.125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EFc-J4-zSg">
@@ -393,4 +522,7 @@
             <point key="canvasLocation" x="228.98550724637684" y="45.535714285714285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="coins" width="606" height="333"/>
+    </resources>
 </document>
