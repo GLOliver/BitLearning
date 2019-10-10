@@ -91,6 +91,8 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("load teoria")
+        
         collectionView.delegate = self;
         collectionView.dataSource = self;
         collectionView.register(UINib(nibName: "ViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell");
