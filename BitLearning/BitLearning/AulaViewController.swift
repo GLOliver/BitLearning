@@ -14,11 +14,13 @@ class AulaViewController: UIViewController {
     @IBOutlet weak var imgAula1: UIImageView!
     @IBOutlet weak var imgAula2: UIImageView!
     @IBOutlet weak var labelText1: UILabel!
+    @IBOutlet weak var labelText2: UILabel!
     
     var selectedTitle: String!
     var selectedImage: UIImage?
     var selectedImage2:UIImage?
     var selectedText1: String!
+    var selectedLabel2:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class AulaViewController: UIViewController {
         imgAula1.image = selectedImage
         labelText1.text = selectedText1
         imgAula2.image = selectedImage2
+        labelText2.text = "A tecnologia por trás do Bitcoin e de várias criptomoedas é chamada de Blockchain, ela nasceu juntamente com o Bitcoin."
 
         // Do any additional setup after loading the view.
     }

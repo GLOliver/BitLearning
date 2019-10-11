@@ -20,6 +20,7 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
         var articlePublished: String
         var articleLabel1: String!
         var image2: UIImage
+        var articlelabel2: String!
         
     }
     
@@ -28,11 +29,14 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
     
     func loadArticles() {
         guard let articleImage1 = UIImage(named: "coins") else { return}
-        guard let articleImage2 = UIImage(named: "coins") else { return }
+        guard let articleImage2 = UIImage(named: "history") else { return }
         
-        var article1 = Article(articleName: "O QUE SÃO CRIPTOMOEDAS", articleImg: articleImage1, articleSubText: "Artigo introdutório sobre criptomoedas", articlePublished: "08-10-2019", articleLabel1: "Criptomoedas são uma espécie de dinheiro virtual que não possui centralização de nenhum governo ou banco e usa funções criptográficas para o seu funcionamento. Mesmo não possuindo uma autoridade central, há segurança e consenso feito pela própria comunidade: não há como mudar os dados sem que todos saibam, é como se fosse um livro-razão de contabilidade, com entradas e saídas. Uma das criptomoedas mais conhecidas é o Bitcoin.", image2: articleImage2)
+        guard let articleImage3 = UIImage(named: "bitcoin") else { return }
+        guard let articleImage4 = UIImage(named: "history_2") else { return }
         
-        var article2 = Article(articleName: "HISTÓRIA DAS CRIPTOMOEDAS", articleImg: articleImage2, articleSubText: "Artigo introdutório sobre criptomoedas 2", articlePublished: "08-10-2019", articleLabel1: "UM BREVE HISTÓRICO DAS CRIPTOMOEDAS", image2: articleImage2)
+        var article1 = Article(articleName: "O QUE SÃO CRIPTOMOEDAS", articleImg: articleImage1, articleSubText: "Artigo introdutório sobre criptomoedas", articlePublished: "08-10-2019", articleLabel1: "Criptomoedas são uma espécie de dinheiro virtual que não possui centralização de nenhum governo ou banco e usa funções criptográficas para o seu funcionamento. Mesmo não possuindo uma autoridade central, há segurança e consenso feito pela própria comunidade: não há como mudar os dados sem que todos saibam, é como se fosse um livro-razão de contabilidade, com entradas e saídas. Uma das criptomoedas mais conhecidas é o Bitcoin.", image2: articleImage3, articlelabel2: "A tecnologia por trás do Bitcoin e de várias criptomoedas é chamada de Blockchain, ela nasceu juntamente com o Bitcoin.")
+        
+        var article2 = Article(articleName: "HISTÓRIA DAS CRIPTOMOEDAS", articleImg: articleImage2, articleSubText: "Um breve histórico das criptomoedas", articlePublished: "08-10-2019", articleLabel1: "A primeira criptomoeda descentralizada foi o Bitcoin, ela utiliza tecnologias criptográficas para segurança e um esquema de prova de trabalho para mineração. Seu algoritmo critptográfico é o SHA-256.", image2: articleImage4, articlelabel2: "Depois do Bitcoin, outras criptomoedas surgiram: Litecoin em Outubro de 2011, Peercoin em 2012 e a primeira moeda mista com prova de trabalho e prova de participação.")
         
         articles += [article1, article2]
     }
@@ -56,6 +60,7 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
         cell.labelTitle.text = articles[row].articleName
         cell.imageViewCenter.image = articles[row].articleImg
         cell.labelSubText.text = articles[row].articleSubText
+        cell.labelPublished.text = articles[row].articlePublished
         
         //if let title = row as? String{
            // cell.labelTitle.text = title;
@@ -85,6 +90,7 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
             destination.selectedText1 = articles[index.row].articleLabel1
             
             destination.selectedImage2 = articles[index.row].image2
+            
         }
     }
 
