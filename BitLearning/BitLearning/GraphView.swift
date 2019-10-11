@@ -16,7 +16,7 @@ class GraphView: UIView {
     
     private let padding     : CGFloat = 30
     private var graphWidth  : CGFloat = 0
-    private var graphHeight : CGFloat = 0
+    private var graphHeight : CGFloat = 50
     private var axisWidth   : CGFloat = 0
     private var axisHeight  : CGFloat = 0
     private var everest     : CGFloat = 0
