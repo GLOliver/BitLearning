@@ -12,11 +12,11 @@ class QuestionBank {
     var list = [Question]()
     
     init() {
-        list.append(Question(image: "coins", questionText: "De acordo com a definição, o que são criptomoedas?", choiceA: "A. RESPOSTA 1!", choiceB: "B. RESPOSTA 2!", choiceC: "C. RESPOSTA 3!", choiceD: "D. RESPOSTA 4!", answer: 2))
+        list.append(Question(image: "coins", questionText: "De acordo com a definição, o que são criptomoedas?", choiceA: "A. Uma espécie de dinheiro virtual que não possui centralização de nenhum governo ou banco", choiceB: "B. Esquema de pirâmide", choiceC: "C. Esquema Ponzi", choiceD: "D. Uma espécie de dinheiro virtual que possui centralização do governo e dos bancos", answer: 1))
         
-        list.append(Question(image: "coins", questionText: "Quem inventou as criptos?", choiceA: "A. Satoshi Nakamoto", choiceB: "B. RESPOSTA 2!", choiceC: "C. RESPOSTA 3!", choiceD: "D. RESPOSTA 4!", answer: 1))
+        list.append(Question(image: "coins", questionText: "Quem criou as criptomoedas?", choiceA: "A. Satoshi Nakamoto", choiceB: "B. Bill Gates", choiceC: "C. Steve Jobs", choiceD: "D. Silvio Santos", answer: 1))
         
-        list.append(Question(image: "coins", questionText: "Complete a frase: Bit...", choiceA: "A. Satoshi Nakamoto", choiceB: "B. Hub", choiceC: "C. coin", choiceD: "D. Bucket", answer: 3))
+        list.append(Question(image: "coins", questionText: "Complete a palavra: Bit...", choiceA: "A. Satoshi Nakamoto", choiceB: "B. Hub", choiceC: "C. coin", choiceD: "D. Bucket", answer: 3))
         
         
     }
