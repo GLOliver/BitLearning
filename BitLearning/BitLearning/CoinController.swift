@@ -32,6 +32,7 @@ class CoinController: UIViewController {
         graph = GraphView(frame: CGRect(x: x, y: y, width: width-x*2, height: height * 0.5), data: myData )
         
         self.graphline.addSubview(graph)
+        
     }
     @IBAction func vender(_ sender: Any) {
         
