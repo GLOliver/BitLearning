@@ -9,7 +9,9 @@
 import UIKit
 
 class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     
     
     struct Article {

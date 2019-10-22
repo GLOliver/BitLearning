@@ -32,6 +32,7 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
         updateQuestion()
         updateUI()
+        self.navigationController?.isNavigationBarHidden = true;
         // Do any additional setup after loading the view.
     }
     
@@ -68,12 +69,15 @@ class QuizViewController: UIViewController {
             selectedAnswer = allQuestions.list[questionNumber].correctAnswer
         
         } else {
-            let alert = UIAlertController(title: "Legal!", message: "Fim do Quiz. Gostaria de tentar de novo?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Fim do Quiz.", message: "Você será redirecionado para a página de Teoria.", preferredStyle: .alert)
             
-            let restartAction = UIAlertAction(title: "Recomeçar", style: .default, handler: {action in self.restartQuiz()})
+            //let restartAction = UIAlertAction(title: "Recomeçar", style: .default, handler: {action in self.restartQuiz()})
             
-            alert.addAction(restartAction)
-            present(alert, animated: true, completion: nil)
+            
+            alert.addAction(UIAlertAction(title:"OK", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
+            
+            //alert.addAction(restartAction)
+           present(alert, animated: true, completion: nil)
         }
         
         updateUI()
@@ -90,7 +94,7 @@ class QuizViewController: UIViewController {
     func restartQuiz() {
         score = 0
         questionNumber = 0
-        updateQuestion()
+        //self.navigationController?.pushViewController(TeoriaViewController, animated: Bool)
     }
 
     

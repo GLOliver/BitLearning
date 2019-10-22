@@ -12,6 +12,7 @@ class CoinController: UIViewController {
 
     @IBOutlet weak var graphline: UIView!
     
+    
     var myData = [["1": 15]]
     var graph:UIView!
     
