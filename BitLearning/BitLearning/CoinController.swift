@@ -56,6 +56,7 @@ class CoinController: UIViewController {
         if (vendaAtiva == false){
             // Inicio do trade de venda
             btnvenda.setTitle("Fechar Venda", for: .normal)
+            btnvenda.titleLabel?.font = UIFont(name: "System", size: 20)
             vendaAtiva = true
             
             cotacao = (ultData?[String(self.cont)] ?? 0)
@@ -63,6 +64,7 @@ class CoinController: UIViewController {
         } else {
             // Fim do trade de compra
             btnvenda.setTitle("Vender", for: .normal)
+            btnvenda.titleLabel?.font = UIFont(name: "System", size: 26)
             vendaAtiva = false
             
             cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
@@ -76,7 +78,7 @@ class CoinController: UIViewController {
                 retorno = investimento - lose
                 
                 //Alert
-                let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(lose)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Ok!", style: .default)
                 alert.addAction(restartAction)
                 present(alert, animated: true, completion: nil)
@@ -86,7 +88,7 @@ class CoinController: UIViewController {
                 retorno = investimento + won
                 
                 //Alert
-                let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(won)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(abs(won))", preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Ok!", style: .default)
                 alert.addAction(restartAction)
                 present(alert, animated: true, completion: nil)
@@ -104,6 +106,7 @@ class CoinController: UIViewController {
         if (compraAtiva == false){
             // Inicio do trade de compra
             btncompra.setTitle("Fechar compra", for: .normal)
+            btncompra.titleLabel?.font = UIFont(name: "System", size: 20)
             compraAtiva = true
             
             cotacao = (ultData?[String(self.cont)] ?? 0)
@@ -111,6 +114,7 @@ class CoinController: UIViewController {
         } else {
             // Fim do trade de compra
             btncompra.setTitle("Comprar", for: .normal)
+            btncompra.titleLabel?.font = UIFont(name: "System", size: 26)
             compraAtiva = false
             cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
             //print("Cotação no inicio: \(cotacao)")
@@ -122,7 +126,7 @@ class CoinController: UIViewController {
                 retorno = investimento - lose
                 
                 //Alert
-                let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(lose)", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Ok!", style: .default)
                 alert.addAction(restartAction)
                 present(alert, animated: true, completion: nil)
