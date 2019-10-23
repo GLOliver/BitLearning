@@ -69,7 +69,7 @@ class QuizViewController: UIViewController {
             selectedAnswer = allQuestions.list[questionNumber].correctAnswer
         
         } else {
-            let alert = UIAlertController(title: "Fim do Quiz.", message: "Você será redirecionado para a página de Teoria.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Fim do Quiz.", message: "Você será redirecionado para a página do simulador.", preferredStyle: .alert)
             
             //let restartAction = UIAlertAction(title: "Recomeçar", style: .default, handler: {action in self.restartQuiz()})
             

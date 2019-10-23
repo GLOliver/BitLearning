@@ -22,6 +22,8 @@
 		55C33C6E234F639400354397 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C6D234F639400354397 /* QuizViewController.swift */; };
 		55C33C70234F70D200354397 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C6F234F70D200354397 /* Question.swift */; };
 		55C33C72234F71FB00354397 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C71234F71FB00354397 /* QuestionBank.swift */; };
+		55C33C742360815700354397 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C732360815700354397 /* Usuario.swift */; };
+		55C33C782360917100354397 /* PerfilTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C772360917100354397 /* PerfilTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		55C33C6D234F639400354397 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		55C33C6F234F70D200354397 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		55C33C71234F71FB00354397 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		55C33C732360815700354397 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		55C33C772360917100354397 /* PerfilTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 				55C33C63234CBA4400354397 /* CoinController.swift */,
 				55C33C54234B733800354397 /* LaunchScreen.storyboard */,
 				55C33C57234B733800354397 /* Info.plist */,
+				55C33C732360815700354397 /* Usuario.swift */,
+				55C33C772360917100354397 /* PerfilTableViewController.swift */,
 			);
 			path = BitLearning;
 			sourceTree = "<group>";
@@ -171,12 +177,14 @@
 			files = (
 				55C33C6C234F576C00354397 /* TeoriaViewController.swift in Sources */,
 				55C33C4E234B733600354397 /* ViewController.swift in Sources */,
+				55C33C782360917100354397 /* PerfilTableViewController.swift in Sources */,
 				55C33C64234CBA4400354397 /* CoinController.swift in Sources */,
 				55C33C72234F71FB00354397 /* QuestionBank.swift in Sources */,
 				554C9BA5235DE410003AD81F /* RoundButton.swift in Sources */,
 				55C33C4A234B733600354397 /* AppDelegate.swift in Sources */,
 				55C33C6A234F536B00354397 /* AulaViewController.swift in Sources */,
 				55C33C70234F70D200354397 /* Question.swift in Sources */,
+				55C33C742360815700354397 /* Usuario.swift in Sources */,
 				55C33C67234F50F700354397 /* ViewCollectionViewCell.swift in Sources */,
 				55C33C6E234F639400354397 /* QuizViewController.swift in Sources */,
 				55C33C62234CB98100354397 /* GraphView.swift in Sources */,

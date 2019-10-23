@@ -15,15 +15,15 @@ class GraphView: UIView {
     private var context : CGContext?
     
     private let padding     : CGFloat = 30
-    private var graphWidth  : CGFloat = 0
-    private var graphHeight : CGFloat = 50
+    private var graphWidth  : CGFloat = 10
+    private var graphHeight : CGFloat = 100
     private var axisWidth   : CGFloat = 0
-    private var axisHeight  : CGFloat = 0
+    private var axisHeight  : CGFloat = 10
     private var everest     : CGFloat = 0
     
     // Graph Styles
     var showLines   = true
-    var showPoints  = false
+    var showPoints  = true
     var linesColor  = UIColor.lightGray
     var graphColor  = UIColor.black
     var labelFont   = UIFont.systemFont(ofSize: 10)
@@ -31,7 +31,7 @@ class GraphView: UIView {
     var xAxisColor  = UIColor.black
     var yAxisColor  = UIColor.black
     
-    var xMargin         : CGFloat = 20
+    var xMargin         : CGFloat = 5
     var originLabelText : String?
     var originLabelColor = UIColor.black
     

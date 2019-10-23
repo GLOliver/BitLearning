@@ -22,6 +22,11 @@ class AulaViewController: UIViewController {
     var selectedText1: String!
     var selectedLabel2:String!
     
+    override func viewWillAppear(_ animated: Bool) {
+            self.navigationController?.isNavigationBarHidden = false;
+           
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

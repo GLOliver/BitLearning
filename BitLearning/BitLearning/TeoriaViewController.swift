@@ -107,5 +107,10 @@ class TeoriaViewController: UIViewController, UICollectionViewDelegate,UICollect
         
         loadArticles()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+               self.navigationController?.isNavigationBarHidden = true;
+              
+       }
 
 }
