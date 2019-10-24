@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		554C9BA5235DE410003AD81F /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C9BA4235DE410003AD81F /* RoundButton.swift */; };
 		554C9BA7235DF38F003AD81F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554C9BA6235DF38E003AD81F /* Assets.xcassets */; };
+		559E300E2361C3ED0008ADDC /* BitLearning.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 559E300C2361C3ED0008ADDC /* BitLearning.xcdatamodeld */; };
+		559E30542361C9710008ADDC /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E30522361C9710008ADDC /* User+CoreDataClass.swift */; };
+		559E30552361C9710008ADDC /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E30532361C9710008ADDC /* User+CoreDataProperties.swift */; };
+		559E30572361CAF30008ADDC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E30562361CAF30008ADDC /* CoreDataManager.swift */; };
 		55C33C4A234B733600354397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C49234B733600354397 /* AppDelegate.swift */; };
 		55C33C4E234B733600354397 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C33C4D234B733600354397 /* ViewController.swift */; };
 		55C33C51234B733600354397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C33C4F234B733600354397 /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 		5503E641234B7D9B00E5574A /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		554C9BA4235DE410003AD81F /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		554C9BA6235DF38E003AD81F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		559E300D2361C3ED0008ADDC /* CoreDataBitLearning.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataBitLearning.xcdatamodel; sourceTree = "<group>"; };
+		559E30522361C9710008ADDC /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		559E30532361C9710008ADDC /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		559E30562361CAF30008ADDC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		55C33C46234B733600354397 /* BitLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C33C49234B733600354397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55C33C4D234B733600354397 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +88,13 @@
 		55C33C48234B733600354397 /* BitLearning */ = {
 			isa = PBXGroup;
 			children = (
+				559E30522361C9710008ADDC /* User+CoreDataClass.swift */,
+				559E30532361C9710008ADDC /* User+CoreDataProperties.swift */,
 				55C33C49234B733600354397 /* AppDelegate.swift */,
 				55C33C61234CB98100354397 /* GraphView.swift */,
 				55C33C4D234B733600354397 /* ViewController.swift */,
 				55C33C4F234B733600354397 /* Main.storyboard */,
+				559E300C2361C3ED0008ADDC /* BitLearning.xcdatamodeld */,
 				554C9BA4235DE410003AD81F /* RoundButton.swift */,
 				554C9BA6235DF38E003AD81F /* Assets.xcassets */,
 				55C33C6D234F639400354397 /* QuizViewController.swift */,
@@ -98,6 +109,7 @@
 				55C33C57234B733800354397 /* Info.plist */,
 				55C33C732360815700354397 /* Usuario.swift */,
 				55C33C772360917100354397 /* PerfilTableViewController.swift */,
+				559E30562361CAF30008ADDC /* CoreDataManager.swift */,
 			);
 			path = BitLearning;
 			sourceTree = "<group>";
@@ -177,8 +189,11 @@
 			files = (
 				55C33C6C234F576C00354397 /* TeoriaViewController.swift in Sources */,
 				55C33C4E234B733600354397 /* ViewController.swift in Sources */,
+				559E30552361C9710008ADDC /* User+CoreDataProperties.swift in Sources */,
 				55C33C782360917100354397 /* PerfilTableViewController.swift in Sources */,
+				559E30572361CAF30008ADDC /* CoreDataManager.swift in Sources */,
 				55C33C64234CBA4400354397 /* CoinController.swift in Sources */,
+				559E300E2361C3ED0008ADDC /* BitLearning.xcdatamodeld in Sources */,
 				55C33C72234F71FB00354397 /* QuestionBank.swift in Sources */,
 				554C9BA5235DE410003AD81F /* RoundButton.swift in Sources */,
 				55C33C4A234B733600354397 /* AppDelegate.swift in Sources */,
@@ -188,6 +203,7 @@
 				55C33C67234F50F700354397 /* ViewCollectionViewCell.swift in Sources */,
 				55C33C6E234F639400354397 /* QuizViewController.swift in Sources */,
 				55C33C62234CB98100354397 /* GraphView.swift in Sources */,
+				559E30542361C9710008ADDC /* User+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +403,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		559E300C2361C3ED0008ADDC /* BitLearning.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				559E300D2361C3ED0008ADDC /* CoreDataBitLearning.xcdatamodel */,
+			);
+			currentVersion = 559E300D2361C3ED0008ADDC /* CoreDataBitLearning.xcdatamodel */;
+			path = BitLearning.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 55C33C3E234B733600354397 /* Project object */;
 }

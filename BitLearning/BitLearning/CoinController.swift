@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class CoinController: UIViewController {
+    
+    var context:NSManagedObjectContext?
 
     @IBOutlet weak var btncompra: RoundButton!
     @IBOutlet weak var btnvenda: RoundButton!
@@ -26,30 +29,56 @@ class CoinController: UIViewController {
     var futureList = [0,1,2,3,4,5,6,10]
     var usuario = Usuario(valorcarteira: 1000)
     
+    
+    
     var compraAtiva = false;
     var vendaAtiva = false;
     var cotacao = 0;
     var cotacaoAtual = 0;
     var investimento = 100;
-
+    
+    var users:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let x: CGFloat = 10
         let y: CGFloat = 10
         let width = self.graphline.frame.width
         let height = self.graphline.frame.height
         
-        graph = GraphView(frame: CGRect(x: x, y: y, width: width-x*2, height: height * 0.5), data: myData )
+        
+        users = CoreDataManager.sharedInstance.getUsers()
+        
+        lbinvest.text = String(investimento);
+        print(users.count)
+        if (users.count < 1) {
+            CoreDataManager.sharedInstance.insertUser(saldo: usuario.carteira, lista: self.myData)
+            users = CoreDataManager.sharedInstance.getUsers()
+            valcarteira.text = String(users[0].saldoReais)
+        
+            graph = GraphView(frame: CGRect(x: x, y: y, width: width-x*2, height: height * 0.5), data: myData )
+        } else {
+            // Puxando saldo em reais do usuário
+            users = CoreDataManager.sharedInstance.getUsers()
+            valcarteira.text = String(users[0].saldoReais)
+            let newMyData = users[0].listaCotacao
+            self.myData = newMyData
+            let lastlist = newMyData.last?.keys
+            let componentArray = Array(lastlist!)
+            self.cont = (Int(componentArray[0]) ?? nil)!
+            //componentArray =
+            graph = GraphView(frame: CGRect(x: x, y: y, width: width-x*2, height: height * 0.5), data: newMyData )
+        }
+        
+        
         
         self.graphline.addSubview(graph)
         
-        lbinvest.text = String(investimento);
-        valcarteira.text = String(usuario.carteira)
-        
         startGraph()
     }
+    
+
     
     @IBAction func invest100(_ sender: Any) {
         if (usuario.carteira - 100 >= 0) {
@@ -89,7 +118,11 @@ class CoinController: UIViewController {
                 vendaAtiva = true
                 
                 usuario.carteira -= investimento
-                valcarteira.text = String(usuario.carteira)
+                
+                // Update saldo do usuário //
+                CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                users = CoreDataManager.sharedInstance.getUsers()
+                valcarteira.text = String(users[0].saldoReais)
                 
                 cotacao = (ultData?[String(self.cont)] ?? 0)
                 
@@ -109,7 +142,11 @@ class CoinController: UIViewController {
                     retorno = investimento - lose
                     let res = investimento + lose
                     usuario.carteira += res
-                    valcarteira.text = String(usuario.carteira)
+                    
+                    // Update saldo do usuário //
+                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                    users = CoreDataManager.sharedInstance.getUsers()
+                    valcarteira.text = String(users[0].saldoReais)
                     
                     //Alert
                     let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
@@ -122,7 +159,11 @@ class CoinController: UIViewController {
                     retorno = investimento + won
                     let res = investimento + won
                     usuario.carteira += res
-                    valcarteira.text = String(usuario.carteira)
+                    
+                    // Update saldo do usuário //
+                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                    users = CoreDataManager.sharedInstance.getUsers()
+                    valcarteira.text = String(users[0].saldoReais)
                     
                     //Alert
                     let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(abs(won))", preferredStyle: .alert)
@@ -155,7 +196,11 @@ class CoinController: UIViewController {
                 compraAtiva = true
                 
                 usuario.carteira -= investimento
-                valcarteira.text = String(usuario.carteira)
+                
+                // Update saldo do usuário //
+                CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                users = CoreDataManager.sharedInstance.getUsers()
+                valcarteira.text = String(users[0].saldoReais)
                 
                 cotacao = (ultData?[String(self.cont)] ?? 0)
                 
@@ -174,7 +219,12 @@ class CoinController: UIViewController {
                     retorno = investimento - lose
                     
                     usuario.carteira += retorno
-                    valcarteira.text = String(usuario.carteira)
+                    
+                    //update saldo coredata
+                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                    users = CoreDataManager.sharedInstance.getUsers()
+                    valcarteira.text = String(users[0].saldoReais)
+        
                     //Alert
                     let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
                     let restartAction = UIAlertAction(title: "Ok!", style: .default)
@@ -186,7 +236,11 @@ class CoinController: UIViewController {
                     retorno = investimento + won
                     
                     usuario.carteira += retorno
-                    valcarteira.text = String(usuario.carteira)
+                    
+                    // Update saldo do usuário //
+                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                    users = CoreDataManager.sharedInstance.getUsers()
+                    valcarteira.text = String(users[0].saldoReais)
                     
                     //Alert
                     let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(abs(won))", preferredStyle: .alert)
@@ -215,8 +269,10 @@ class CoinController: UIViewController {
             if (self.myData.count == 9){
                 self.myData.remove(at: 0)
                 self.myData.append(newData)
+                CoreDataManager.sharedInstance.updateCotacao(lista: self.myData)
             } else {
                 self.myData.append(newData)
+                CoreDataManager.sharedInstance.updateCotacao(lista: self.myData)
             }
             
             
@@ -279,4 +335,7 @@ class CoinController: UIViewController {
         lbcotacaoatual.text = String(valor)
             
         }
+    
 }
+
+

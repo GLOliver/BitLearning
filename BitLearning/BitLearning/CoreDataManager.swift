@@ -1,25 +1,17 @@
 //
-//  AppDelegate.swift
+//  CoreDataManager.swift
 //  BitLearning
 //
-//  Created by Aluno Mack on 07/10/19.
+//  Created by Aluno Mack on 24/10/2019.
 //  Copyright © 2019 Aluno Mack. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import CoreData
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
-    }
-
-    // MARK: UISceneSession Lifecycle
+class CoreDataManager {
+    
+    static let sharedInstance = CoreDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -63,7 +55,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
-
+    
+    func insertUser(saldo: Int,lista: [[String: Int]]) {
+        guard let newUser = NSEntityDescription.insertNewObject(forEntityName: "User", into: persistentContainer.viewContext) as? User else { return }
+        newUser.saldoReais = Int16(saldo)
+        newUser.listaCotacao = lista
+        saveContext()
+    }
+    
+    func updateSaldo(saldo: Int){
+        do{
+            let usuarios:[User] = try persistentContainer.viewContext.fetch(User.fetchRequest())
+            let usuario = usuarios[0]
+            usuario.saldoReais = Int16(saldo)
+            saveContext()
+        } catch {
+            print("CoreData error")
+        }
+    print("CoreData error")
+    }
+    
+    func updateCotacao(lista: [[String: Int]]){
+        do{
+            let usuarios:[User] = try persistentContainer.viewContext.fetch(User.fetchRequest())
+            let usuario = usuarios[0]
+            usuario.listaCotacao = lista
+            saveContext()
+        } catch {
+            print("CoreData error updateCotacao 1")
+        }
+        print("CoreData error updateCotacao 2")
+    }
+    
+    
+    func getUsers() -> [User] {
+        do{
+            let usuarios:[User] = try persistentContainer.viewContext.fetch(User.fetchRequest())
+            return usuarios
+        } catch {
+            print("CoreData error")
+        }
+        return []
+    }
+    
+    func deleteObject(object:NSManagedObject) {
+        persistentContainer.viewContext.delete(object)
+        saveContext()
+    }
+    
 }
-

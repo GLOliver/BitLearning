@@ -11,9 +11,13 @@ import UIKit
 class PerfilTableViewController: UITableViewController {
     @IBOutlet weak var lbcarteira: UILabel!
     
-    var carteira: Int{
+    var users:[User] = []
+    
+    var carteira: Int16{
         get {
-            return (self.tabBarController!.viewControllers![0] as! CoinController).usuario.carteira
+            //return (self.tabBarController!.viewControllers![0] as! CoinController).usuario.carteira
+            users = CoreDataManager.sharedInstance.getUsers()
+            return users[0].saldoReais
         }
     }
     
