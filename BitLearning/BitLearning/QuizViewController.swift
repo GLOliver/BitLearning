@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class QuizViewController: UIViewController {
 
@@ -26,6 +27,8 @@ class QuizViewController: UIViewController {
     var questionNumber: Int = 0
     var score: Int = 0
     var selectedAnswer: Int = 0
+    var premio: Int = 0
+    var users:[User] = []
     
     
     override func viewDidLoad() {
@@ -68,19 +71,46 @@ class QuizViewController: UIViewController {
             
             selectedAnswer = allQuestions.list[questionNumber].correctAnswer
         
+            updateUI()
+            
         } else {
-            let alert = UIAlertController(title: "Fim do Quiz.", message: "Você será redirecionado para a página do simulador.", preferredStyle: .alert)
+            scoreLabel.text = "Pontuação: \(score)"
             
-            //let restartAction = UIAlertAction(title: "Recomeçar", style: .default, handler: {action in self.restartQuiz()})
+            if (score <= 1){
+                premio = 0
+            } else if (score == 2){
+                premio = 50
+            } else if (score >= 3){
+                premio = 100
+            }
+            
+            if (premio > 0){
+                
+                users = CoreDataManager.sharedInstance.getUsers()
+                let newsaldo = Int(users[0].saldoReais) + premio
+                CoreDataManager.sharedInstance.updateSaldo(saldo: newsaldo)
+                
+                let alert = UIAlertController(title: "Fim do Quiz!", message: "Parabéns! Você ganhou \(premio), que será adicionado a sua carteira.", preferredStyle: .alert)
+                
+                 alert.addAction(UIAlertAction(title:"Legal!", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
+                 
+                present(alert, animated: true, completion: nil)
+                
+            } else {
+                let alert = UIAlertController(title: "Fim do Quiz.", message: "Que pena! Você não ganhou o premio, deseja tentar novamente?", preferredStyle: .alert)
+                
+                let restartAction = UIAlertAction(title: "Sim :)", style: .default, handler: {action in self.restartQuiz()})
+                
+                alert.addAction(UIAlertAction(title:"Não :(", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
+                alert.addAction(restartAction)
+                
+                present(alert, animated: true, completion: nil)
+            }
             
             
-            alert.addAction(UIAlertAction(title:"OK", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
-            
-            //alert.addAction(restartAction)
-           present(alert, animated: true, completion: nil)
         }
         
-        updateUI()
+        
         
     }
     
@@ -94,7 +124,7 @@ class QuizViewController: UIViewController {
     func restartQuiz() {
         score = 0
         questionNumber = 0
-        //self.navigationController?.pushViewController(TeoriaViewController, animated: Bool)
+        updateQuestion()
     }
 
     

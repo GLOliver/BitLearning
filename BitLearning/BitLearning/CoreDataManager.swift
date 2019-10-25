@@ -72,7 +72,7 @@ class CoreDataManager {
         } catch {
             print("CoreData error")
         }
-    print("CoreData error")
+    print("Saldo atualizado no coredata")
     }
     
     func updateCotacao(lista: [[String: Int]]){
@@ -84,7 +84,7 @@ class CoreDataManager {
         } catch {
             print("CoreData error updateCotacao 1")
         }
-        print("CoreData error updateCotacao 2")
+        print("Cotacao atualizada no coredata")
     }
     
     

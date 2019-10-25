@@ -111,67 +111,75 @@ class CoinController: UIViewController {
             var retorno = 0;
             var lose = 0;
             var won = 0;
-            if (vendaAtiva == false){
-                // Inicio do trade de venda
-                btnvenda.setTitle("Fechar Venda", for: .normal)
-                btnvenda.titleLabel?.font = UIFont(name: "System", size: 26.0)
-                vendaAtiva = true
-                
-                usuario.carteira -= investimento
-                
-                // Update saldo do usuário //
-                CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
-                users = CoreDataManager.sharedInstance.getUsers()
-                valcarteira.text = String(users[0].saldoReais)
-                
-                cotacao = (ultData?[String(self.cont)] ?? 0)
-                
-            } else {
-                // Fim do trade de compra
-                btnvenda.setTitle("Vender", for: .normal)
-                btnvenda.titleLabel?.font = UIFont(name: "System", size: 26.0)
-                vendaAtiva = false
-                
-                cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
-                //print("Cotação no inicio: \(cotacao)")
-                //print("Contação no inicio: \(cotacaoAtual)")
-                
-                if (cotacao < cotacaoAtual){
-                    lose = cotacao - cotacaoAtual
-                    //self.carteira -= lose
-                    retorno = investimento - lose
-                    let res = investimento + lose
-                    usuario.carteira += res
+            if(compraAtiva == true){
+                //Alert
+                let alert = UIAlertController(title: "Fim do trade", message: "Encerre o trade atual antes de iniciar um novo", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                alert.addAction(restartAction)
+                present(alert, animated: true, completion: nil)
+            }else{
+                if (vendaAtiva == false){
+                    // Inicio do trade de venda
+                    btnvenda.setTitle("Fechar Venda", for: .normal)
+                    btnvenda.titleLabel?.font = UIFont(name: "System", size: 30)
+                    vendaAtiva = true
+                    
+                    usuario.carteira -= investimento
                     
                     // Update saldo do usuário //
                     CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
                     users = CoreDataManager.sharedInstance.getUsers()
                     valcarteira.text = String(users[0].saldoReais)
                     
-                    //Alert
-                    let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
-                    let restartAction = UIAlertAction(title: "Ok!", style: .default)
-                    alert.addAction(restartAction)
-                    present(alert, animated: true, completion: nil)
+                    cotacao = (ultData?[String(self.cont)] ?? 0)
+                    
                 } else {
-                    won = cotacaoAtual - cotacao
-                    //self.carteira += won
-                    retorno = investimento + won
-                    let res = investimento + won
-                    usuario.carteira += res
+                    // Fim do trade de compra
+                    btnvenda.setTitle("Vender", for: .normal)
+                    btnvenda.titleLabel?.font = UIFont(name: "System", size: 30)
+                    vendaAtiva = false
                     
-                    // Update saldo do usuário //
-                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
-                    users = CoreDataManager.sharedInstance.getUsers()
-                    valcarteira.text = String(users[0].saldoReais)
+                    cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
+                    //print("Cotação no inicio: \(cotacao)")
+                    //print("Contação no inicio: \(cotacaoAtual)")
                     
-                    //Alert
-                    let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(abs(won))", preferredStyle: .alert)
-                    let restartAction = UIAlertAction(title: "Ok!", style: .default)
-                    alert.addAction(restartAction)
-                    present(alert, animated: true, completion: nil)
+                    if (cotacao < cotacaoAtual){
+                        lose = cotacao - cotacaoAtual
+                        //self.carteira -= lose
+                        retorno = investimento - lose
+                        let res = investimento + lose
+                        usuario.carteira += res
+                        
+                        // Update saldo do usuário //
+                        CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                        users = CoreDataManager.sharedInstance.getUsers()
+                        valcarteira.text = String(users[0].saldoReais)
+                        
+                        //Alert
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você vendeu por \(investimento) e comprou por \(retorno); Você teve um prejuízo de \(abs(lose))", preferredStyle: .alert)
+                        let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                        alert.addAction(restartAction)
+                        present(alert, animated: true, completion: nil)
+                    } else {
+                        won = cotacaoAtual - cotacao
+                        //self.carteira += won
+                        retorno = investimento + won
+                        let res = investimento + won
+                        usuario.carteira += res
+                        
+                        // Update saldo do usuário //
+                        CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                        users = CoreDataManager.sharedInstance.getUsers()
+                        valcarteira.text = String(users[0].saldoReais)
+                        
+                        //Alert
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você vendeu por  \(investimento) e comprou por \(retorno); Você teve um lucrou de \(abs(won))", preferredStyle: .alert)
+                        let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                        alert.addAction(restartAction)
+                        present(alert, animated: true, completion: nil)
+                    }
+                    lbretorno.text = "---"
                 }
-                lbretorno.text = "---"
             }
         } else {
             let alert = UIAlertController(title: "Saldo insuficiente", message: "Que pena! Você não possue saldo suficiente", preferredStyle: .alert)
@@ -189,68 +197,76 @@ class CoinController: UIViewController {
             var retorno = 0;
             var lose = 0;
             var won = 0;
-            if (compraAtiva == false){
-                // Inicio do trade de compra
-                btncompra.setTitle("Fechar compra", for: .normal)
-                btncompra.titleLabel?.font = UIFont(name: "System", size: 20)
-                compraAtiva = true
-                
-                usuario.carteira -= investimento
-                
-                // Update saldo do usuário //
-                CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
-                users = CoreDataManager.sharedInstance.getUsers()
-                valcarteira.text = String(users[0].saldoReais)
-                
-                cotacao = (ultData?[String(self.cont)] ?? 0)
-                
-            } else {
-                // Fim do trade de compra
-                btncompra.setTitle("Comprar", for: .normal)
-                btncompra.titleLabel?.font = UIFont(name: "System", size: 26.0)
-                compraAtiva = false
-                cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
-                //print("Cotação no inicio: \(cotacao)")
-                //print("Contação no inicio: \(cotacaoAtual)")
-                
-                if (cotacao > cotacaoAtual){
-                    lose = cotacao - cotacaoAtual
-                    //self.carteira -= lose
-                    retorno = investimento - lose
+            if(vendaAtiva == true){
+                //Alert
+                let alert = UIAlertController(title: "Fim do trade", message: "Encerre o trade atual antes de iniciar um novo", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                alert.addAction(restartAction)
+                present(alert, animated: true, completion: nil)
+            }else{
+                if (compraAtiva == false){
+                    // Inicio do trade de compra
+                    btncompra.setTitle("Fechar compra", for: .normal)
+                    btncompra.titleLabel?.font = UIFont(name: "System", size: 20)
+                    compraAtiva = true
                     
-                    usuario.carteira += retorno
-                    
-                    //update saldo coredata
-                    CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
-                    users = CoreDataManager.sharedInstance.getUsers()
-                    valcarteira.text = String(users[0].saldoReais)
-        
-                    //Alert
-                    let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você perdeu \(abs(lose))", preferredStyle: .alert)
-                    let restartAction = UIAlertAction(title: "Ok!", style: .default)
-                    alert.addAction(restartAction)
-                    present(alert, animated: true, completion: nil)
-                } else {
-                    won = cotacaoAtual - cotacao
-                    //self.carteira += won
-                    retorno = investimento + won
-                    
-                    usuario.carteira += retorno
+                    usuario.carteira -= investimento
                     
                     // Update saldo do usuário //
                     CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
                     users = CoreDataManager.sharedInstance.getUsers()
                     valcarteira.text = String(users[0].saldoReais)
                     
-                    //Alert
-                    let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Seu investimento foi de \(investimento); Seu retorno foi de \(retorno); Você lucrou \(abs(won))", preferredStyle: .alert)
-                    let restartAction = UIAlertAction(title: "Ok!", style: .default)
-                    alert.addAction(restartAction)
-                    present(alert, animated: true, completion: nil)
+                    cotacao = (ultData?[String(self.cont)] ?? 0)
+                    
+                } else {
+                    // Fim do trade de compra
+                    btncompra.setTitle("Comprar", for: .normal)
+                    btncompra.titleLabel?.font = UIFont(name: "System", size: 26.0)
+                    compraAtiva = false
+                    cotacaoAtual = (ultData?[String(self.cont)] ?? 0)
+                    //print("Cotação no inicio: \(cotacao)")
+                    //print("Contação no inicio: \(cotacaoAtual)")
+                    
+                    if (cotacao > cotacaoAtual){
+                        lose = cotacao - cotacaoAtual
+                        //self.carteira -= lose
+                        retorno = investimento - lose
+                        
+                        usuario.carteira += retorno
+                        
+                        //update saldo coredata
+                        CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                        users = CoreDataManager.sharedInstance.getUsers()
+                        valcarteira.text = String(users[0].saldoReais)
+            
+                        //Alert
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você comprou por  \(investimento) e vendeu por \(retorno); Você teve um prejuízo de \(abs(lose))", preferredStyle: .alert)
+                        let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                        alert.addAction(restartAction)
+                        present(alert, animated: true, completion: nil)
+                    } else {
+                        won = cotacaoAtual - cotacao
+                        //self.carteira += won
+                        retorno = investimento + won
+                        
+                        usuario.carteira += retorno
+                        
+                        // Update saldo do usuário //
+                        CoreDataManager.sharedInstance.updateSaldo(saldo: usuario.carteira)
+                        users = CoreDataManager.sharedInstance.getUsers()
+                        valcarteira.text = String(users[0].saldoReais)
+                        
+                        //Alert
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você comprou por \(investimento) e vendeu por \(retorno); Você teve um lucrou de \(abs(won))", preferredStyle: .alert)
+                        let restartAction = UIAlertAction(title: "Ok!", style: .default)
+                        alert.addAction(restartAction)
+                        present(alert, animated: true, completion: nil)
+                    }
+                    lbretorno.text = "---"
                 }
-                lbretorno.text = "---"
             }
-        }else {
+        } else {
             let alert = UIAlertController(title: "Saldo insuficiente", message: "Que pena! Você não possue saldo suficiente", preferredStyle: .alert)
             let restartAction = UIAlertAction(title: "Ok!", style: .default)
             alert.addAction(restartAction)
