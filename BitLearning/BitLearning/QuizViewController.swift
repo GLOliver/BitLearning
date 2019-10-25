@@ -90,7 +90,7 @@ class QuizViewController: UIViewController {
                 let newsaldo = Int(users[0].saldoReais) + premio
                 CoreDataManager.sharedInstance.updateSaldo(saldo: newsaldo)
                 
-                let alert = UIAlertController(title: "Fim do Quiz!", message: "Parabéns! Você ganhou \(premio), que será adicionado a sua carteira.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Fim do Quiz!", message: "Parabéns! Você ganhou R$\(premio), que será adicionado a sua carteira.", preferredStyle: .alert)
                 
                  alert.addAction(UIAlertAction(title:"Legal!", style: .default, handler:  { action in self.performSegue(withIdentifier: "mySegueIdentifier", sender: self) }))
                  

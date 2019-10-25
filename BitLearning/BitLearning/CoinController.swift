@@ -156,7 +156,7 @@ class CoinController: UIViewController {
                         valcarteira.text = String(users[0].saldoReais)
                         
                         //Alert
-                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você vendeu por \(investimento) e comprou por \(retorno); Você teve um prejuízo de \(abs(lose))", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você vendeu por R$\(investimento) e comprou por R$\(retorno); Você teve um prejuízo de R$\(abs(lose))", preferredStyle: .alert)
                         let restartAction = UIAlertAction(title: "Ok!", style: .default)
                         alert.addAction(restartAction)
                         present(alert, animated: true, completion: nil)
@@ -173,7 +173,7 @@ class CoinController: UIViewController {
                         valcarteira.text = String(users[0].saldoReais)
                         
                         //Alert
-                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você vendeu por  \(investimento) e comprou por \(retorno); Você teve um lucrou de \(abs(won))", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você vendeu por  R$\(investimento) e comprou por R$\(retorno); Você teve um lucrou de R$\(abs(won))", preferredStyle: .alert)
                         let restartAction = UIAlertAction(title: "Ok!", style: .default)
                         alert.addAction(restartAction)
                         present(alert, animated: true, completion: nil)
@@ -241,7 +241,7 @@ class CoinController: UIViewController {
                         valcarteira.text = String(users[0].saldoReais)
             
                         //Alert
-                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você comprou por  \(investimento) e vendeu por \(retorno); Você teve um prejuízo de \(abs(lose))", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que pena! Você comprou por  R$\(investimento) e vendeu por R$\(retorno); Você teve um prejuízo de R$\(abs(lose))", preferredStyle: .alert)
                         let restartAction = UIAlertAction(title: "Ok!", style: .default)
                         alert.addAction(restartAction)
                         present(alert, animated: true, completion: nil)
@@ -258,7 +258,7 @@ class CoinController: UIViewController {
                         valcarteira.text = String(users[0].saldoReais)
                         
                         //Alert
-                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você comprou por \(investimento) e vendeu por \(retorno); Você teve um lucrou de \(abs(won))", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Fim do trade", message: "Que legal! Você comprou por R$\(investimento) e vendeu por R$\(retorno); Você teve um lucrou de R$\(abs(won))", preferredStyle: .alert)
                         let restartAction = UIAlertAction(title: "Ok!", style: .default)
                         alert.addAction(restartAction)
                         present(alert, animated: true, completion: nil)
